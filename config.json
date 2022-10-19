@@ -1,0 +1,17 @@
+{
+    "listeners": {
+        "*:80": {
+            "pass": "applications/fastapi"
+        }
+    },
+
+    "applications": {
+        "fastapi": {
+            "type": "python 3.8",
+            "path": "~/python/src/simple_web/",
+            "home": "~/python/src/simple_web/",
+            "module": "main",
+            "callable": "app"
+        }
+    }
+}

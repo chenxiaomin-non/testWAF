@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> Test WAF Website</title>
+    <script>
+        async function submit2(){
+            url = '/sql/' + document.getElementById('name').value;
+            console.log(url)
+            const resp = await fetch(url, {
+                method: 'GET'
+            }).then(response => response.text());
+            console.log(resp);
+    
+            document.getElementById('result').innerText = 'Result: ' + resp
+        }
+    </script>
+</head>
+
+<style>
+    body{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    form {
+        margin-top: 200px;
+        height: 300px;
+        width: auto;
+        border: 1px solid grey;
+        padding: 20px;
+    }
+    .container{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<body>
+    <form>
+        <div style="display: flex;justify-content: center;">
+            <h4>Student Infomation</h4>
+        </div>
+        <div class="container">
+            <p style="margin-right: 20px;">Name: </p>
+            <input type="text" name="name" id="name" />
+        </div>
+        <div style="display: flex;justify-content: center; align-items:center; padding-top: 20px;"> 
+            <input type="button" name="submit" id="submit" onclick="submit2()" value="Submit"/>
+        </div>
+        <div style="padding-top: 30px;" id="result">
+            Result: 
+        </div>
+    </form>    
+</body>
+</html>
